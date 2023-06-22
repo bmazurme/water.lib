@@ -18,7 +18,7 @@ type TypeRainTime = {
 type TypeRainFlow = {
   place: number;
   condition: number;
-  area: TypeArea;
+  area: TypeRainArea;
   intensity: number;
   lengthPipe: number;
   lengthTray: number;
@@ -37,7 +37,7 @@ type TypeRainResult = {
   p: number;
   mr: number;
   gamma: number;
-  area: TypeArea;
+  area: TypeRainArea;
   areaSumm: number;
   flow: number;
   place: number;
