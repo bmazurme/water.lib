@@ -6,7 +6,7 @@
 // stone - Щебеночные покрытия, не обработанные вяжущими
 // lawns - Газоны
 
-const KOEF = {
+const KOEF: Record<string, number> = {
   PAVEMENTS: 0.22,
   COBBLESTONE: 0.14,
   STONE: 0.13,
