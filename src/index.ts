@@ -1,41 +1,39 @@
-import { getRainFlow } from './calcs/rain-waters';
+import { getRainFlow, getRainFlowFromRoof } from './calcs/rain-water';
+import dataForRainCalc from './mocks/data-rain-flow';
 
-const data = getRainFlow({
-  place: 1,
-  condition: 1,
-  area: {
-    roof: 1,
-    stone: 1,
-    lawns: 1,
-    tracks: 1,
-    ground: 1,
-    pavements: 1,
-    cobblestone: 1,
-  },
-  intensity: 1,
-  lengthPipe: 1,
-  lengthTray: 1,
-  velocityPipe: 1,
-  velocityTray: 1,
-  timeInit: 1,
-});
+const data = getRainFlow(dataForRainCalc);
 
 console.log(data);
-
+console.log(getRainFlowFromRoof(2,2,2,2,2))
 
 function first() {
-  console.log("first(): factory evaluated");
+  console.log('first(): factory evaluated');
   return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
-    console.log("first(): called", target, propertyKey, descriptor);
+    console.log('first(): called', target, propertyKey, descriptor);
   };
 }
-  
+
 class ExampleClass {
   @first()
-  method() {}
+  method() {
+    console.log(123);
+  }
 }
 
 new ExampleClass().method();
+
+let variable = function(target) {
+  target.property = 'GFG is best';
+}
+
+// Decorator
+@variable
+class GFG {
+
+}
+
+// Print in the console
+console.log((GFG as any).property);
 
 // @first()
 // function method() {
@@ -43,5 +41,5 @@ new ExampleClass().method();
 // }
 // method();
 
-console.log(444);
+// console.log(444);
 
